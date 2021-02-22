@@ -1,23 +1,28 @@
 import Head from 'next/head';
+import React from "react"
 
 import styled from "styled-components";
 import {motion} from "framer-motion";
 
 //Components
 import Container from "../components/container/container"
-
-import { Intro } from "../components/container/container-styles";
-
+import Navbar from "../components/navbar/navbar";
+import Intro from "../components/intro/intro";
+import SeparateSection from "../components/separateSection";
 
 export default function Home() {
   return (
-    <Container>
-      <Intro bg="home-bg">
-          <div>
-              <motion.h1>Lorem ipsum</motion.h1>
-              <motion.h4>Tempus dolor, pretium, fermentum consectetur </motion.h4>
-          </div>
-      </Intro>  
-    </Container>
+    <React.Fragment>
+      <Navbar />
+      <Container>
+        <Intro 
+            bg="home-bg" 
+            title="Lorem ipsum" 
+            subtitle="Tempus dolor, pretium, fermentum consectetur Tempus dolor, pretium, fermentum consectetur" 
+            btn="Order Now"
+          />
+        <SeparateSection />
+      </Container>
+    </React.Fragment>
   )
 }

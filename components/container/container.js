@@ -4,12 +4,10 @@ import { motion } from "framer-motion"
 
 import { Main } from "./container-styles";
 
-import Navbar from "../navbar/navbar";
 
 function Container(props) {
     return ( 
-        <React.Fragment>
-            <Navbar />
+        <React.Fragment>   
             <Main>
                 {props.children}
             </Main>      

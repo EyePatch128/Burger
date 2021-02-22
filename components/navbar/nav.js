@@ -31,7 +31,7 @@ function Navigation (props){
     });
 
     const variants = {
-        open: { opacity: 1, left: 0},
+        open: { opacity: 1, left: 0,},
         closed: { opacity: 0, left: "-50%"},
       }
 

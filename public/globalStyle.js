@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         background-color: ${primary_bg_color};
-        overflow-x:hidden;
+        overflow-x: hidden;
         font-family: 'Poppins', sans-serif;
     }
     a{

@@ -5,23 +5,14 @@ import {secondary_bg_color, primary_color, secondary_color} from "../../public/c
 import {md} from "../../public/breakpoints"
 
 export const Main = styled.main`
-  
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: ${md}){
+    margin-top: -10vh;
+    & > section{
+      padding: auto 10%;
+    }
+  }
 `
-
-export const Intro = styled.section`
-  width: 100vw;
-  height: 100vh;
-  background: url("/images/${props=>props.bg}.png") rgba(0, 0, 0, .4);
-  background-blend-mode: multiply;
-  background-position: center;
-
-  div{
-    color: white;
-  }
-
-  @media screen and (min-width:${md}){
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`;

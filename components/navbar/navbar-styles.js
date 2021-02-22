@@ -3,13 +3,13 @@ import {motion} from "framer-motion"
 
 import {secondary_bg_color, primary_color, secondary_color} from "../../public/colors"
 
-import {md, lg} from "../../public/breakpoints";
+import {md} from "../../public/breakpoints";
 
 export const Header = styled.header`
+    width: 100vw;
     height: 4em;
     background-color: ${secondary_bg_color};
     color: white;
-    width: 100%;
     position: relative;
     z-index: 1;
     @media screen and (min-width: ${md}){
@@ -84,6 +84,7 @@ export const NavList = styled.ul`
     padding: 3em 2em 1em 2em;
     background-color: ${primary_color};
     order: 2;
+    z-index: ${props=>props.isOpen? 'auto' : -5 };
     .info{
         margin-top: 1em;
     }
@@ -108,6 +109,7 @@ export const NavList = styled.ul`
         padding: 0 1em;
         margin: 0;
         background-color: transparent;
+        z-index: auto;
     }
 `;
 
@@ -118,7 +120,7 @@ export const NavLink= styled.li`
     padding: 0.7em;
     margin-left: 1em;
     color: ${secondary_bg_color};
-
+    cursor: pointer;
     @media (min-width: ${md}){
         color: white;
         padding: 0;
@@ -150,6 +152,7 @@ export const OrderButton = styled.button`
         border: none;
         margin-left: 3em;
         padding: 0.7em;
+        cursor: pointer;
     }
 `;
 
