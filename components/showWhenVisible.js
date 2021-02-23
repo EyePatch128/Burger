@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion"
 
@@ -19,7 +18,7 @@ function ShowWhenVisible(props) {
         ref={ref}
         animate={controls}
         initial="hidden"
-        transition={{ duration: 0.5, when: "beforeChildren"}}
+        transition={{ duration: props.delay || 0.5, when: "beforeChildren"}}
         variants={{
           visible: { opacity: 1, y: 0},
           hidden: { opacity: 0, y: 30 }

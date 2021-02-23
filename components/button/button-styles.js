@@ -8,6 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     margin-top: 3em;
     font-size: 16px;
+
     @media screen and (min-width: ${md}){
         font-size: 18px;
         margin-top: 4em;
@@ -27,15 +28,14 @@ export const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5em 1em;
+    padding: 0.6em 1em;
     cursor: pointer;
-
     svg{
         margin-left: 0.4em;
     }
 
     @media screen and (min-width: ${md}){
-        padding: 0.5em 1.3em;
+        padding: 0.6em 1.3em;
 
         svg{
             transform: scale(1.3);

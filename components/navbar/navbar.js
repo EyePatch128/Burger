@@ -4,10 +4,10 @@ import React from 'react';
 import { Header } from "./navbar-styles";
 import Navigation from "./nav";
 
-function Navbar(props){
+function Navbar({isMobile}){
     return(
         <Header>
-            <Navigation/>
+            <Navigation isMobile={isMobile}/>
         </Header>
     );
 }

@@ -1,14 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { AnimatePresence } from "framer-motion"
 
 
 
 // Icons
 import PhoneIcon from "../../public/icons/phone.svg";
-
-// Media Breakpoints
-import {md} from "../../public/breakpoints";
 
 // components
 import { Nav, Logo, Phone, NavListContainerMobile } from "./navbar-styles";
@@ -23,12 +19,8 @@ function Navigation (props){
     const toggleNavbar = ()=>{
         setOpen(!open);
     }
-
-
-    const _md = `${(parseInt(md) - 1)}px`
-    const isMobile = useMediaQuery({
-        query: `(max-device-width: ${_md})`
-    });
+    
+    const isMobile = props.isMobile;
 
     const variants = {
         open: { opacity: 1, left: 0,},

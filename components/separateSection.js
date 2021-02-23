@@ -1,16 +1,17 @@
-import styled from "styled-components";
-import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import { primary_bg_color } from "../public/colors";
-import {md} from "../public/breakpoints";
+import {md} from "../public/breakpoints"
+
 
 const SeparateSection = styled.section`
-    margin-top: ${props=>props.height*-2.2}px;
+    margin-top: ${props=>props.margin_top}px;
+    margin-bottom: ${props=>props.margin_bottom}px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    transform: rotate(${props=>props.rotate || 0});
     div{
         background: ${primary_bg_color};
         height: ${props=>props.height*1.4}px;
@@ -18,50 +19,33 @@ const SeparateSection = styled.section`
     }
 
     svg{
-        margin: auto;
+        margin: 0 auto -0.1em auto;
     }
 
     @media screen and (min-width: ${md}){
-        margin-top: ${props=>props.height*-1.2}px;
-
+        margin-top: ${props=>props.margin_top}px;
+        margin-bottom: ${props=>props.margin_bottom}px;
         div{
             height: ${props=>props.height*0.5}px;
         }
     }
 `;
-const SVG = styled.svg`
-    margin: auto;
-`;
 
 
 function Separation(props){
-    const [width, setWidth] = useState(500);
-    const [height, setHeight] = useState(500);
-    useEffect(()=>{
-        setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
-    }, [])
+    const width = (props.isMobile? props.windowDimensions.width * 0.4 : props.windowDimensions.width * 0.6) || null;
+    const height = (props.isMobile? props.windowDimensions.height * 0.1 : props.windowDimensions.height * 0.2) || null;
+    const peakY = props.isMobile? 0:30;
+    const points = `${width/2},${peakY}  0,${height} ${width},${height}`;
 
-    const _md = `${(parseInt(md) - 1)}px`
-    const isMobile = useMediaQuery({
-        query: `(max-device-width: ${_md})`
-    });
-
-
-    const svgWidth = isMobile? width * 0.4 : width * 0.6;
-    const svgHeight = isMobile? height * 0.1 : height * 0.2;
-    
-    const peakY = isMobile? 0:30;
-    const points = `${svgWidth/2},${peakY}  0,${svgHeight} ${svgWidth},${svgHeight}`
-    console.log(points)
+    const margin_top    = props.isMobile? (props.forIntro? height*-2.2 : 0) : (props.forIntro? height*-1.2 : 0);
+    const margin_bottom = props.isMobile? (props.rotate? height*-2 : 0) : (props.rotate? height*-1.2 : 0);
     return(
-        <SeparateSection height={svgHeight}>
-                
-            <svg width={svgWidth} height={svgHeight} viewBox={`0 0 ${svgWidth} ${svgHeight}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+        <SeparateSection margin_bottom={margin_bottom} margin_top={margin_top} rotate={props.rotate} height={height} width={width}>
+            <svg height={height} width={width} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
                 <polygon points={points} fill={primary_bg_color}/>
             </svg>
             <div/>
-
         </SeparateSection>
     )
 }
