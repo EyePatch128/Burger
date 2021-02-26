@@ -8,6 +8,7 @@ import {md} from "../public/breakpoints"
 const SeparateSection = styled.section`
     margin-top: ${props=>props.margin_top}px;
     margin-bottom: ${props=>props.margin_bottom}px;
+    padding: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -38,8 +39,8 @@ function Separation(props){
     const peakY = props.isMobile? 0:30;
     const points = `${width/2},${peakY}  0,${height} ${width},${height}`;
 
-    const margin_top    = props.isMobile? (props.forIntro? height*-2.2 : 0) : (props.forIntro? height*-1.2 : 0);
-    const margin_bottom = props.isMobile? (props.rotate? height*-2 : 0) : (props.rotate? height*-1.2 : 0);
+    const margin_top    = props.isMobile? (props.up? height*-2.2 : 0) : (props.up? height*-1.2 : 0);
+    const margin_bottom = props.isMobile? (props.down? height*-2 : 0) : (props.down? height*-1.2 : 0);
     return(
         <SeparateSection margin_bottom={margin_bottom} margin_top={margin_top} rotate={props.rotate} height={height} width={width}>
             <svg height={height} width={width} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 import { md } from "../../public/breakpoints";
 import { paragraph_color, primary_color } from "../../public/colors";
@@ -21,6 +21,10 @@ export const Section = styled.section`
     flex-direction: column;
     margin-bottom: 2em;
     ${props=>applyBackground(props.bg)}
+
+    @media screen and (min-width: ${md}){
+        padding: 0 10%;
+    }
 `;
 
 export const TextContainer = styled.div`
@@ -28,7 +32,6 @@ export const TextContainer = styled.div`
     width: 80%;
     text-align: center;
     padding: auto 3em;
-    
 
     &>*{
         margin: 0;
@@ -60,7 +63,6 @@ export const TextContainer = styled.div`
 `
 
 export const Paragraph = styled.div`
-    width: 60%;
     margin: 3.5em auto 2em auto;
     font-family: "Poppins";
     font-weight: 100;
@@ -76,9 +78,8 @@ export const Space = styled.span`
     margin: 2em auto 1em auto;
 
     @media screen and (min-width: ${md}){
-        width: ${props=>props.show?'0.1em':0};
+        width: 0;
         height: 10em;
         margin: 2em auto;
-        background-color: ${primary_color};
     }
 `;

@@ -6,15 +6,25 @@ import ShowWhenVisible from "../showWhenVisible";
 import {Section, TextContainer, Paragraph, Space} from "./section-styles";
 
 // Components
-import ColoredBurger from "../burger-icon/burger";
+import ColoredBurger from "../burger-icon/colored-burger";
+import WhiteBurger from "../burger-icon/white-burger";
 
 function SectionContainer(props){
+    const spaceTop = [null];
+    const spaceBot = [null];
+    for(let i=0; i<props.spaceTop;i++){
+        spaceTop.push(<Space key={i} />);
+    }
+    for(let i=0; i<props.spaceBot;i++){
+        spaceBot.push(<Space key={i} />);
+    }
+
     return(
-        <Section bg={props.bg}>
-            {props.spaced?<Space/>:null}
+        <Section bg={props.bg} ariaLabel={props.bg?props.bg.split(".")[0].replace('-', ' ').toUpperCase() : ""}>
+            {spaceTop}
 
-            {props.ColoredBurger?<ColoredBurger/>:null}
-
+            {props.ColoredBurger? <ColoredBurger/> : null}
+            {props.WhiteBurger? <WhiteBurger/> : null}
 
             <TextContainer>
 
@@ -41,10 +51,14 @@ function SectionContainer(props){
             </TextContainer>
 
             <ShowWhenVisible>
+                {props.children}
+            </ShowWhenVisible>
+
+            <ShowWhenVisible>
                 {props.btn? <Button>{props.btn}</Button> : null}
             </ShowWhenVisible>
 
-            {props.spaced?<Space show/>:null}
+            {spaceBot}
         </Section>
     )
 }

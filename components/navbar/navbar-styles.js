@@ -30,6 +30,7 @@ export const Nav = styled.div`
         justify-content: space-between;
         margin: auto;
         width: 80%;
+        padding: 0;
     }
 `;
 

@@ -16,8 +16,7 @@ export const Intro = styled.section`
 
 export const HeadingContainer = styled.div`
   color: white;
-  padding: 25vh 0 0 1.5em;
-  width: 100%;
+  padding: 25vh 1.5em 0 1.5em;
 
   h1{
     font-size: 35px;

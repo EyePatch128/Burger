@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }) {
                 <title>Create Next App</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+                <meta http-equiv="content-language" content="en" />
             </Head>
             <GlobalStyle />
             <Context.Provider value={{state, setState}}>

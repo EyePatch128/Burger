@@ -14,6 +14,9 @@ import Navbar from "../components/navbar/navbar";
 import Intro from "../components/intro/intro";
 import SeparateSection from "../components/separateSection";
 import Section from "../components/section/section";
+import Grid from "../components/grid/grid";
+import Entry from "../components/entry/entry";
+import Feedback from '../components/feedback/feedback';
 
 
 export default function Home() {
@@ -47,6 +50,17 @@ export default function Home() {
       bg: "burger-bg.png",
       title: "Discover our delicacies",
       subtitle: "Fresh From The Grill"
+    },
+    OurPopularDishes: {
+      title: "Our Popular Dishes",
+      subtitle: "Quality Ingredients, Tasty Meals",
+      paragraph: ["Consectetur amet nibh pretium et vel. Tincidunt nunc fermentum massa habitant. Vel consectetur non at sed felis. Donec malesuada at facilisis aliquet eget in."],
+      btn: "Explore Entire Menu"
+    },
+    HappyCustomers:{
+      bg: "happy-customer.png",
+      title: "They All Love Our Food",
+      paragraph: ["Vitae habitasse scelerisque natoque eu. Non et etiam et nibh nullam tellus egestas auctor. Et sem viverra neque neque, nisl. Maecenas non pharetra ipsum, rutrum justo, vitae id urna, donec. "]
     }
   }
 
@@ -61,7 +75,7 @@ export default function Home() {
             btn={content.Intro.btn}
           />
 
-        <SeparateSection forIntro isMobile={isMobile} windowDimensions={windowDimensions}/>
+        <SeparateSection up isMobile={isMobile} windowDimensions={windowDimensions}/>
         
         <Section
           title={content.TheBurgerPlace.title}
@@ -76,8 +90,66 @@ export default function Home() {
           title={content.DiscoverDelicacies.title}
           subtitle={content.DiscoverDelicacies.subtitle}
           bg={content.DiscoverDelicacies.bg}
-          spaced
+          spaceTop={1}
+          spaceBot={1}
         />
+
+        <Section
+          title={content.OurPopularDishes.title}
+          subtitle={content.OurPopularDishes.subtitle}
+          text={content.OurPopularDishes.paragraph}
+          btn={content.OurPopularDishes.btn}
+          WhiteBurger
+        >
+          <Grid>
+            <Entry 
+              bg="origin-burger.png"
+              name="Origin Burger"
+              price="10"
+              description="Roasted eggplant spread, marinated steak, veggies"
+              btn-action={state.addOrder}
+              />
+
+            <Entry 
+              bg="origin-burger.png"
+              name="Origin Burger"
+              price="10"
+              description="Roasted eggplant spread, marinated steak, veggies"
+              btn-action={state.addOrder}
+              />
+
+              <Entry 
+              bg="origin-burger.png"
+              name="Origin Burger"
+              price="10"
+              description="Roasted eggplant spread, marinated steak, veggies"
+              btn-action={state.addOrder}
+              />
+
+              <Entry 
+              bg="origin-burger.png"
+              name="Origin Burger"
+              price="10"
+              description="Roasted eggplant spread, marinated steak, veggies"
+              btn-action={state.addOrder}
+              />
+          </Grid>
+        </Section>
+
+        <Section
+          bg={content.HappyCustomers.bg}
+          title={content.HappyCustomers.title}
+          text={content.HappyCustomers.paragraph}
+          spaceTop={1}
+          spaceBot={isMobile?2:1}
+        />
+
+        <SeparateSection up isMobile={isMobile} windowDimensions={windowDimensions}/>
+
+        <Section>
+            <Feedback image="sakura.png" name="Sakura" comment="Non malesuada sit ipsum purus, sed!" />
+        </Section>
+
       </Container>
     </React.Fragment>
   )
