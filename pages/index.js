@@ -17,6 +17,7 @@ import Section from "../components/section/section";
 import Grid from "../components/grid/grid";
 import Entry from "../components/entry/entry";
 import Feedback from '../components/feedback/feedback';
+import Footer from "../components/footer/footer";
 
 
 export default function Home() {
@@ -101,7 +102,7 @@ export default function Home() {
           btn={content.OurPopularDishes.btn}
           WhiteBurger
         >
-          <Grid>
+          <Grid col={2}>
             <Entry 
               bg="origin-burger.png"
               name="Origin Burger"
@@ -147,9 +148,15 @@ export default function Home() {
         <SeparateSection up isMobile={isMobile} windowDimensions={windowDimensions}/>
 
         <Section>
-            <Feedback image="sakura.png" name="Sakura" comment="Non malesuada sit ipsum purus, sed!" />
+            <Grid col={3} tb>
+              <Feedback image="sakura.jpg" name="Sakura" comment="Non malesuada sit ipsum purus, sed!" />
+              <Feedback image="song.jpg" name="Song" comment="Non malesuada sit ipsum purus, sed!" />
+              <Feedback image="viking.jpg" name="Viking" comment="Non malesuada sit ipsum purus, sed!" />
+            </Grid>
         </Section>
 
+        <Footer />
+        
       </Container>
     </React.Fragment>
   )

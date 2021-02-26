@@ -4,7 +4,7 @@ import {GridContainer} from "./grid-styles"
 
 function Grid(props){
     return(
-        <GridContainer>
+        <GridContainer col={props.col} tb={props.tb}>
             {props.children}
         </GridContainer>
     )

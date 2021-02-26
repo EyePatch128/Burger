@@ -2,16 +2,13 @@ import React from "react";
 import {motion} from "framer-motion"
 
 // Components
-import Button from "../button/button"
+import Button from "../button/toMenuButton"
 import ShowWhenVisible from "../showWhenVisible";
 
 // Styled Components
 import { Intro, HeadingContainer } from "./intro-styles";
 
 function IntroContainer(props){
-    function orderNow(){
-        console.log("Clicked")
-    }
     return(
         <Intro bg={props.bg}>
             <ShowWhenVisible>
@@ -21,7 +18,7 @@ function IntroContainer(props){
                 </HeadingContainer>
             
                 <ShowWhenVisible>
-                    {props.btn?<Button action={orderNow}>{props.btn}</Button>:null}
+                    {props.btn?<Button>  {props.btn} </Button>:null}
                 </ShowWhenVisible>
             </ShowWhenVisible>
         </Intro>

@@ -121,13 +121,19 @@ export const NavLink= styled.li`
     padding: 0.7em;
     margin-left: 1em;
     color: ${secondary_bg_color};
+    text-transform: uppercase;
     cursor: pointer;
+    transition: .5s;
+
+    &:hover{
+        color: #bfbbbb;
+    }
+    
     @media (min-width: ${md}){
         color: white;
         padding: 0;
         margin: 1em ;
         font-family: 'PoppinsMedium';
-        
     }
 `
 

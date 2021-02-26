@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 
 
 // Icons
@@ -13,13 +14,22 @@ function NavigationList (props){
 
     return(
         <NavList>
+
+            <NavLink>
+                <Link href="/">HOME</Link>
+            </NavLink>
+
+            <NavLink>
+                <Link href="/menu">MENU</Link>
+            </NavLink>
+
+            <NavLink>
+                <Link href="/contact">CONTACT US</Link>
+            </NavLink>
+
                 { 
                     props.isMobile &&
                     <React.Fragment>                                                
-                        <NavLink>HOME</NavLink>
-                        <NavLink>MENU</NavLink>
-                        <NavLink>CONTACT US</NavLink>
-
                         <div className="info">
                             <NavLink>
                                 <NavLinkInfo>
@@ -44,10 +54,6 @@ function NavigationList (props){
                 {
                     !props.isMobile &&
                     <React.Fragment>
-                        <NavLink>HOME</NavLink>
-                        <NavLink>MENU</NavLink>
-                        <NavLink>CONTACT US</NavLink>
-
                         <OrderButton>
                             <BagIcon />
                             2
