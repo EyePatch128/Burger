@@ -4,7 +4,7 @@ import { md } from "../../public/breakpoints";
 export const Container = styled.div`
     height: 10em;
     width: 8em;
-    margin: 0 auto -2.5em auto;
+    margin: 1em auto -2.5em auto;
     svg{
         height: inherit;
         width: inherit;
