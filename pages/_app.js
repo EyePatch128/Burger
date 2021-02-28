@@ -16,20 +16,34 @@ import {md} from "../public/breakpoints";
 
 
 function MyApp({ Component, pageProps }) {
-   
-    // Detecting if user is on mobile or not
+
+    // Detecting if user is on mobile or not and Updating
     const _md = `${(parseInt(md) - 1)}px`;
-    const isMobile = useMediaQuery({
+    const mobileDetected = useMediaQuery({
         query: `(max-device-width: ${_md})`
     });
-
-    const [state, setState] = useState({ isMobile });
-
-    //Update state when isMobile changes
+    const [isMobile, setIsMobile] = useState(mobileDetected);
     useEffect(()=>{
-        setState({...state, isMobile})
-    }, [isMobile])
+        setIsMobile(mobileDetected);
+    }, [mobileDetected]);
 
+    //Get window dimensions
+    const [windowDimensions, setWindowDimensions] = useState({});
+    useEffect(()=>{
+        setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+
+        const handleResize = ()=>{
+            setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+        };
+        window.addEventListener('resize', handleResize);
+
+        return ()=>{window.removeEventListener("resize", handleResize)};
+    }, []);
+
+    const state = {
+        isMobile: [isMobile, setIsMobile],
+        windowDimensions: [windowDimensions, setWindowDimensions]
+    };
 
     return (
         <React.Fragment>
@@ -40,7 +54,7 @@ function MyApp({ Component, pageProps }) {
                 <meta httpEquiv="content-language" content="en" />
             </Head>
             <GlobalStyle />
-            <Context.Provider value={{state, setState}}>
+            <Context.Provider value={state}>
                 <Component {...pageProps} />
             </Context.Provider>
         </React.Fragment>

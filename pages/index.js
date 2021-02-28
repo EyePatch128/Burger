@@ -1,8 +1,6 @@
-import Head from 'next/head';
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 
-// import styled from "styled-components";
-// import {motion} from "framer-motion";
+import firebase from "../config/firebase";
 
 
 //Context
@@ -21,20 +19,13 @@ import Footer from "../components/footer/footer";
 
 
 export default function Home() {
-  const {state} = useContext(Context);
-  const isMobile = state.isMobile;
+  
+  const context  = useContext(Context);
 
-  const [windowDimensions, setWindowDimensions] = useState({});
-  useEffect(()=>{
-    setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
-    const handleResize = ()=>{
-      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
-    }
-    window.addEventListener('resize', handleResize)
+  const isMobile = context.isMobile[0];
+  const windowDimensions = context.windowDimensions[0];
 
-    return ()=>{window.removeEventListener("resize", handleResize)};
-  }, [])
-
+ 
   const content = {
     Intro: {
       bg:"home-bg.png",
@@ -65,6 +56,7 @@ export default function Home() {
     }
   }
 
+
   return (
     <React.Fragment>
       <Navbar isMobile={isMobile}/>
@@ -85,7 +77,7 @@ export default function Home() {
           ColoredBurger
         />
 
-        <SeparateSection isMobile={isMobile} windowDimensions={windowDimensions} rotate="180deg"/>
+        <SeparateSection down isMobile={isMobile} windowDimensions={windowDimensions} rotate="180deg"/>
 
         <Section
           title={content.DiscoverDelicacies.title}
@@ -108,7 +100,7 @@ export default function Home() {
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              btn-action={state.addOrder}
+              addOrder={""}
               />
 
             <Entry 
@@ -116,24 +108,24 @@ export default function Home() {
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              btn-action={state.addOrder}
+              addOrder={""}
               />
 
-              <Entry 
+            <Entry 
               bg="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              btn-action={state.addOrder}
-              />
+              addOrder={""}
+            />
 
-              <Entry 
+            <Entry 
               bg="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              btn-action={state.addOrder}
-              />
+              addOrder={""}
+            />
           </Grid>
         </Section>
 
