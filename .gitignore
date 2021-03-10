@@ -28,3 +28,6 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# config
+burger-4981f-firebase-adminsdk-icsg2-1c7bbfa7ba.json

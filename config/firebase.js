@@ -1,4 +1,6 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/firestore"
+import "firebase/auth"
 
 const firebaseConfig = {
     apiKey:  process.env.FIREBASE_API_KEY,
@@ -8,14 +10,12 @@ const firebaseConfig = {
     messagingSenderId:  process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId:  process.env.FIREBASE_APP_ID,
     measurementId:  process.env.FIREBASE_MEASUREMENT_ID
-  };
-
-
-try{
+};
+if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
-} catch(err){
-    if (!/already exists/.test(err.message))
-        console.error('Firebase initialization error', err.message);
-}
+ }else {
+    firebase.app(); 
+ }
 
 export default firebase;
+
