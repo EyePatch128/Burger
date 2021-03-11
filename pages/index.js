@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 
-import firebase from "../config/firebase";
+// import firebase from "../config/firebase";
 
 
 //Context
@@ -21,7 +21,7 @@ import Feedback from '../components/feedback/feedback';
 import Footer from "../components/footer/footer";
 
 
-export default function Home() {
+export default function Home(props) {
   
   const context  = useContext(Context);
 

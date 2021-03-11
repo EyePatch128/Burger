@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useMediaQuery } from 'react-responsive';
 
 // Next things
-import App from "next/app"
 import Head from "next/head"
 
 // Context
@@ -60,7 +59,6 @@ function MyApp({ Component, pageProps }) {
         </React.Fragment>
         )
   }
+ 
   
-
-  
-  export default MyApp
+export default MyApp;
