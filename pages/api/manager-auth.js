@@ -9,6 +9,7 @@ async function handler (req, res){
 
             const body = req.body;
             const {action} = body;
+            console.log(action)
 
             if(action == "SIGNIN"){
                 const {username, password} = body;
@@ -27,11 +28,11 @@ async function handler (req, res){
                             res.status(400).send(errorMessage);
                         }catch(err){
                             console.log(err)
-                            res.status(400).send()
+                            res.status(400).send("")
                         }
                         resolve()
                     });
-            }else{
+            }else if (action == 'SIGNOUT'){
                 firebase.auth().signOut()
                     .then(()=>{
                         // Signed out
@@ -46,6 +47,17 @@ async function handler (req, res){
                             res.status(400).send()
                         }
                     });
+            }else if(action == "CHECKSTATE"){
+                const user = auth.currentUser;
+                if(user){
+                    res.status(200).json({
+                        signedIn: true
+                    })
+                }else{
+                    res.status(401).json({
+                        signedIn: false
+                    })
+                }
             }
         }else{
             res.setHeader('Allow', ['POST'])

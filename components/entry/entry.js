@@ -1,5 +1,4 @@
-import React  from "react";
-
+import React, { useEffect, useState }  from "react";
 
 import {Container, Image, TextContainer, Name, Description, Button} from "./entry-styles";
 
@@ -7,10 +6,24 @@ import {Container, Image, TextContainer, Name, Description, Button} from "./entr
 import ShowWhenVisible from "../showWhenVisible";
 
 function Entry(props){
+    // Fetch image background download url
+    const [imageURL, setImageURL] = useState("");
+    useEffect(()=>{
+        fetch(`/api/image?id=${props.imageURL}`)
+            .then(res=>res.text())
+            .then(res=>{
+                setImageURL(res)
+            })
+            .catch(err=>{
+                throw err;
+            });
+    }, [imageURL])
+
+
     return(
         <ShowWhenVisible>
             <Container>
-                <Image bg={props.bg} alt="Origin Burger"/>
+                <Image imageURL={imageURL} alt="Origin Burger"/>
 
                 <TextContainer>
                     <Name>

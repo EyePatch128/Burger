@@ -15,9 +15,22 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 
 
+
+function create_UUID(){
+  var dt = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = (dt + Math.random()*16)%16 | 0;
+      dt = Math.floor(dt/16);
+      return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+  });
+  return uuid;
+}
+
+
 const uploadFile = async (file, fileToDelete) => {
   if(file.size > 0){
     const filename = file.path;
+
     const bucketName = process.env.FIREBASE_STORAGE_BUCKET
 
     // Delete old file if there is
@@ -37,9 +50,13 @@ const uploadFile = async (file, fileToDelete) => {
             cacheControl: 'public, max-age=31536000',
         },
     });
-    console.log(`${filename} uploaded to ${bucketName}.`);
+    console.log(`${filename} uploaded to ${bucketName}`);
+
     deleteFile(filename);
-  }
+  } else{
+    deleteFile(filename);
+  };
+  
 }
 
 const addEntry = async ({ type, name, description, price }, image)=>{
@@ -54,6 +71,7 @@ const addEntry = async ({ type, name, description, price }, image)=>{
 
   // Data to enter
   const data = {
+    _id: create_UUID(),
     Description: description,
     Price: price,
     ImageURL: path.basename(image.path)
@@ -147,7 +165,6 @@ async function handler(req, res){
         entryExists(data)
           .then(doc=>{
             if(!doc){
-              console.log("Doc doesnt exist")
               addEntry(data, image)
                 .then(response=>res.status(response.status).send(response.text))
                 .catch(error=>{
@@ -155,7 +172,6 @@ async function handler(req, res){
                 })
               
             }else{
-              console.log("Doc exists")
               updateEntry(doc, data, image)
                 .then(response=>res.status(response.status).send(response.text))
                 .catch(error=>{

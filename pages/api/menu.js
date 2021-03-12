@@ -25,8 +25,8 @@ async function handler(req, res){
             res.status(400).send("");
         };
 
-    } else{
-        res.setHeader('Allow', ['POST'])
+    }else{
+        res.setHeader('Allow', ['GET'])
         res.status(405).end(`Method ${req.method} Not Allowed`)
     }
 }

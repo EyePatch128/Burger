@@ -8,7 +8,30 @@ import {Container, Form, Input, Button, StatusModal, AuthenticationForm, Logout}
 
 function Manager(props){
     // Authentication state
-    const [signedIn, setSignedIn] = useState(false);
+    const [signedIn, setSignedIn] = useState(null);
+    useEffect(()=>{
+        const data = {
+            action: "CHECKSTATE"
+        };
+        fetch("/api/manager-auth", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res=>{
+                return res.json();
+            })
+            .then(res=>{
+                setSignedIn(res.signedIn);
+            })
+            .catch(err=>{
+                throw err;
+            })
+    }, [])
+
+
 
     // Custom file label
     const [fileLabel, setFileLabel] = useState("");

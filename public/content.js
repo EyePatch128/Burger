@@ -27,3 +27,11 @@ export const index = {
       paragraph: ["Vitae habitasse scelerisque natoque eu. Non et etiam et nibh nullam tellus egestas auctor. Et sem viverra neque neque, nisl. Maecenas non pharetra ipsum, rutrum justo, vitae id urna, donec. "]
     }
   }
+
+export const Menu = {
+  Intro: {
+    bg:"menu-bg.jpg",
+    title:"Our Menu",
+    subtitle:"Tempus dolor, pretium, fermentum consectetur Tempus dolor."
+  }
+}

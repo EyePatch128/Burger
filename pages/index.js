@@ -7,7 +7,7 @@ import React, { useContext } from "react"
 import Context from "../context"
 
 //Content
-import { index as content} from "../public/content/index";
+import { index as content} from "../public/content";
 
 //Components
 import Container from "../components/container/container";
@@ -69,7 +69,7 @@ export default function Home(props) {
         >
           <Grid col={2}>
             <Entry 
-              bg="origin-burger.png"
+              imageURL="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
@@ -77,7 +77,7 @@ export default function Home(props) {
               />
 
             <Entry 
-              bg="origin-burger.png"
+              imageURL="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
@@ -85,7 +85,7 @@ export default function Home(props) {
               />
 
             <Entry 
-              bg="origin-burger.png"
+              imageURL="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
@@ -93,7 +93,7 @@ export default function Home(props) {
             />
 
             <Entry 
-              bg="origin-burger.png"
+              imageURL="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"

@@ -20,7 +20,7 @@ export const Container = styled(motion.div)`
 `
 
 export const Image = styled.div`
-    background: url(${props=>"/images/" + props.bg}) rgba(0, 0, 0, .4);
+    background: url(${props=>props.imageURL}) rgba(0, 0, 0, .4);
     background-blend-mode: multiply;
     background-position: center;
     background-repeat: no-repeat;
