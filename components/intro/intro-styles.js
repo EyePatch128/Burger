@@ -12,6 +12,7 @@ export const Intro = styled.section`
   background-position: center bottom 25px;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 `;
 
 export const HeadingContainer = styled.div`

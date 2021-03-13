@@ -74,6 +74,7 @@ export default function Home(props) {
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
               addOrder={""}
+              animate
               />
 
             <Entry 
@@ -82,6 +83,7 @@ export default function Home(props) {
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
               addOrder={""}
+              animate
               />
 
             <Entry 
@@ -90,6 +92,7 @@ export default function Home(props) {
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
               addOrder={""}
+              animate
             />
 
             <Entry 
@@ -98,6 +101,7 @@ export default function Home(props) {
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
               addOrder={""}
+              animate
             />
           </Grid>
         </Section>

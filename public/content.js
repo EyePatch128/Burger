@@ -35,3 +35,11 @@ export const Menu = {
     subtitle:"Tempus dolor, pretium, fermentum consectetur Tempus dolor."
   }
 }
+
+export const Contact = {
+  Intro: {
+    bg:"contact-bg.jpg",
+    title:"Contact Us",
+    subtitle:"Tempus dolor, pretium, fermentum consectetur Tempus dolor. Tempus dolor, pretium, fermentum"
+  }
+}

@@ -1,11 +1,12 @@
 import React from "react"
-import Button from "../button/toMenuButton"
-import ShowWhenVisible from "../showWhenVisible";
+
 
 // Styles
 import {Section, TextContainer, Paragraph, Space} from "./section-styles";
 
 // Components
+import Button from "../button/toMenuButton"
+import ShowWhenVisible from "../showWhenVisible";
 import ColoredBurger from "../burger-icon/colored-burger";
 import WhiteBurger from "../burger-icon/white-burger";
 

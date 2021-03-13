@@ -20,6 +20,7 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
+    
     ${props=>applyBackground(props.bg)}
 
     @media screen and (min-width: ${md}){

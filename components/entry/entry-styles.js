@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 import { paragraph_color, primary_color, secondary_bg_color } from "../../public/colors"
-import { tb } from "../../public/breakpoints"
+import { md, tb } from "../../public/breakpoints"
 
 
 export const Container = styled(motion.div)`
@@ -13,8 +13,18 @@ export const Container = styled(motion.div)`
         grid-template-areas: 
             "image text"
             "image text"
-            "image . "
+            "image ."
             "image button";
+            
+    }
+    @media screen and (min-width: ${md}){
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            "image image text text text"
+            "image image text text text"
+            "image image . . ."
+            "image image button button button";
             
     }
 `
@@ -52,6 +62,7 @@ export const TextContainer = styled.div`
 export const Name = styled.div`
     display: flex;
     justify-content: space-between;
+    font-size: 0.9em;
     width: 90%;
     margin: auto;
     letter-spacing: 1.5px;
@@ -70,7 +81,7 @@ export const Description = styled.div`
     margin: 0.5em auto 0 auto;
     font-weight: 100;
     width: 90%;
-    font-size: 0.9em;
+    font-size: 0.8em;
     & > *{
         margin: 0;
     }
