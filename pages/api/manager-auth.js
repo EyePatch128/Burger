@@ -9,7 +9,6 @@ async function handler (req, res){
 
             const body = req.body;
             const {action} = body;
-            console.log(action)
 
             if(action == "SIGNIN"){
                 const {username, password} = body;

@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
-import { AnimatePresence } from "framer-motion"
+import React, {useState} from 'react';
+import Link from "next/link"
 
+import { AnimatePresence } from "framer-motion"
 
 
 // Icons
@@ -57,7 +58,7 @@ function Navigation (props){
                 </AnimatePresence>
                 </React.Fragment>
             }
-            <Logo>LOGO</Logo>
+            <Link href="/"><Logo>LOGO</Logo></Link>
             {
                 !isMobile &&
                 <NavigationList isMobile={isMobile} />

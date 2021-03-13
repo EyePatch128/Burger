@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import styled from "styled-components"
 import { tb } from "../../public/breakpoints"
 
@@ -81,4 +82,20 @@ export const Container = styled.div`
         }
     }
 
+`
+
+export const StatusModal = styled(motion.div)`
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    transform: translateX(-50%);
+    border: 1px solid ${props=>props.color};
+    background-color: #d4edda;
+    padding: .8em 2.4em;
+
+    h4{
+        font-size: 1em;
+        color: ${props=>props.color};
+        margin: 0;
+    }
 `

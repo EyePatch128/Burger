@@ -39,6 +39,8 @@ export const Logo = styled.a`
     font-size: 28px;
     font-weight: 800;
     margin: auto auto auto 0.4em;
+    cursor: pointer;
+    
     @media (min-width: ${md}) {
         font-size: 42px;
         margin: 0;

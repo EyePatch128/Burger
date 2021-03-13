@@ -26,7 +26,6 @@ function Contact(props){
 
     const isMobile = context.isMobile[0];
     const windowDimensions = context.windowDimensions[0];
-    console.log(windowDimensions)
 
 
     return(
