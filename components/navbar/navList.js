@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from "next/link";
 
+// Context
+import Context from "../../context";
 
 // Icons
 import PhoneIcon from "../../public/icons/phone.svg";
@@ -11,7 +13,11 @@ import {NavList, NavLink, NavLinkInfo, OrderButton} from "./navbar-styles";
 
 
 function NavigationList (props){
-
+    const context  = useContext(Context);
+    const [orders, addOrder] = context.cart;
+    const [showCart, setShowCart] = context.showCart;
+    const ordersNum = orders.length;
+    
     return(
         <NavList>
 
@@ -54,9 +60,9 @@ function NavigationList (props){
                 {
                     !props.isMobile &&
                     <React.Fragment>
-                        <OrderButton>
+                        <OrderButton onClick={(e)=>setShowCart(true)}>
                             <BagIcon />
-                            2
+                            {ordersNum}
                         </OrderButton>
                     </React.Fragment>
                 }

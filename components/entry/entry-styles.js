@@ -88,7 +88,7 @@ export const Description = styled.div`
 `
 
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
     width: 100%;
     background: ${paragraph_color};
     font-family: "PoppinsBold", sans-serif;
@@ -98,6 +98,8 @@ export const Button = styled.button`
     letter-spacing: 0.05em;
     padding: .5em 0;
     cursor: pointer;
+
+
     @media screen and (min-width: ${tb}){
         grid-area: button;
         margin-top: 2em;

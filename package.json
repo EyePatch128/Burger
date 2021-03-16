@@ -9,9 +9,8 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^5.8.1",
-    "axios": "^0.21.1",
-    "busboy": "^0.3.1",
-    "connect": "^3.7.0",
+    "cookie-cutter": "^0.2.0",
+    "cookies": "^0.8.0",
     "firebase": "^8.2.10",
     "formidable": "^1.2.2",
     "framer-motion": "^3.3.0",
@@ -19,7 +18,6 @@
     "nodemailer": "^6.5.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-google-maps": "^9.4.5",
     "react-intersection-observer": "^8.31.0",
     "react-responsive": "^8.2.0",
     "styled-components": "^5.2.1"

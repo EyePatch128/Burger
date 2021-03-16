@@ -7,7 +7,7 @@ import Navigation from "./nav";
 function Navbar({isMobile}){
     return(
         <Header>
-            <Navigation isMobile={isMobile}/>
+            <Navigation isMobile={isMobile} />
         </Header>
     );
 }

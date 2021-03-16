@@ -20,6 +20,13 @@ import Footer from "../components/footer/footer";
 export default function Menu(props){
     const context  = useContext(Context);
 
+    // Set page Title
+    const [pageTitle, setPageTitle] = context.pageTitle;
+    useEffect(()=>{
+        setPageTitle("Menu")
+    }, [pageTitle]);
+    
+
     const isMobile = context.isMobile[0];
     const windowDimensions = context.windowDimensions[0];
 
@@ -47,6 +54,7 @@ export default function Menu(props){
     //         return(
     //             <Entry 
     //                 key={id}
+    //                 id={id}
     //                 name={name}
     //                 description={description}
     //                 price={price}

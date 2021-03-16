@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 
 // import firebase from "../config/firebase";
 
@@ -19,20 +19,30 @@ import Grid from "../components/grid/grid";
 import Entry from "../components/entry/entry";
 import Feedback from '../components/feedback/feedback';
 import Footer from "../components/footer/footer";
-
+import ShowOrder from "../components/showOrder/showOrder";
 
 export default function Home(props) {
   
   const context  = useContext(Context);
 
+  // Set page Title
+  const [pageTitle, setPageTitle] = context.pageTitle;
+  useEffect(()=>{
+    setPageTitle("Home");
+  }, [pageTitle]);
+
+  // if user is on mobile and window dimensions
   const isMobile = context.isMobile[0];
   const windowDimensions = context.windowDimensions[0];
 
+  // Shopping cart stuff
+  const [orders, addOrder] = context.cart;
+  const [showCart, setShowCart] = context.showCart;
  
 
   return (
     <React.Fragment>
-      <Navbar isMobile={isMobile}/>
+      <Navbar isMobile={isMobile} />
       <Container>
         <Intro 
             bg={content.Intro.bg}
@@ -68,39 +78,43 @@ export default function Home(props) {
           WhiteBurger
         >
           <Grid col={2}>
-            <Entry 
+            <Entry
+              id={1}
               imageURL="origin-burger.png"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={""}
+              addOrder={addOrder}
               animate
               />
 
             <Entry 
+              id={2}
               imageURL="origin-burger.png"
-              name="Origin Burger"
+              name="Traditional Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={""}
+              addOrder={addOrder}
               animate
               />
 
-            <Entry 
+            <Entry
+              id={3}
               imageURL="origin-burger.png"
-              name="Origin Burger"
-              price="10"
+              name="Kid's Burger"
+              price="7"
               description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={""}
+              addOrder={addOrder}
               animate
             />
 
-            <Entry 
+            <Entry
+              id={4}
               imageURL="origin-burger.png"
-              name="Origin Burger"
-              price="10"
+              name="Mini Burger"
+              price="8"
               description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={""}
+              addOrder={addOrder}
               animate
             />
           </Grid>
@@ -127,6 +141,7 @@ export default function Home(props) {
         <Footer />
         
       </Container>
+      <ShowOrder orders={orders} setShowCart={setShowCart} />
     </React.Fragment>
   )
 }

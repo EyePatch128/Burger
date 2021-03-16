@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 
 // Nextjs
 import Image from "next/image"
@@ -23,6 +23,13 @@ import Footer from "../components/footer/footer"
 
 function Contact(props){
     const context  = useContext(Context);
+
+    // Set page Title
+    const [pageTitle, setPageTitle] = context.pageTitle;
+    useEffect(()=>{
+        setPageTitle("Contact us")
+    }, [pageTitle]);
+
 
     const isMobile = context.isMobile[0];
     const windowDimensions = context.windowDimensions[0];
