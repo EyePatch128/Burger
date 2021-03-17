@@ -68,8 +68,11 @@ export const Step = styled(motion.div)`
         margin: 1em auto 0 1.5em;
     }
     
-    & > div{
+    & > div, & > form{
         flex-basis: 50%;
+    }
+
+    & > div{
         margin: 2em 1em 0 .5em;
         position: relative;
 
@@ -198,5 +201,36 @@ export const Step = styled(motion.div)`
         font-size: 1em;
         letter-spacing: 1.2px;
         cursor: pointer;
+    }
+`
+
+export const DeliveryForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    margin: 3em 1em 3em 1em;
+
+    input{
+        font-size: 1em;
+        font-family: "PoppinsMedium", sans-serif;
+        letter-spacing: 1.2px;
+        text-indent: .3em;
+        padding: .6em 0;
+        outline: none;
+        border: none;
+        appearance: none;
+        margin-top: .5em;
+    }
+
+    @media screen and (min-width: ${tb}){
+        margin: 4em 5em 2em 5em;
+    }
+`
+
+export const PaymentForm = styled(DeliveryForm)`
+    margin-bottom: 1em;
+    & > div{
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
     }
 `

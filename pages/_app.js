@@ -84,7 +84,6 @@ function MyApp({ Component, pageProps }) {
                 if(res.status == 200){
                     // setOrders(JSON.parse(data));
                     setOrders(JSON.parse(cookieCutter.get("orders")));
-                    e.target.disabled = true;
                 };
             }) 
             .catch(err=>{
@@ -134,6 +133,7 @@ function MyApp({ Component, pageProps }) {
                 throw err;
             })
     }
+
     // State to pass to pages
     const state = {
         isMobile: [isMobile, setIsMobile],
@@ -141,7 +141,8 @@ function MyApp({ Component, pageProps }) {
         pageTitle: [pageTitle, setPageTitle],
         cart: [orders, addOrder],
         showCart: [showCart, setShowCart],
-        clearCart: [deleteOrder, clearCart]
+        clearCart: [deleteOrder, clearCart],
+        setOrders: setOrders
     };
 
     return (
