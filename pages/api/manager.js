@@ -154,7 +154,7 @@ async function handler(req, res){
     if(user){
 
       const form = new formidable.IncomingForm();
-      form.uploadDir = path.resolve("./tmp");
+      form.uploadDir = path.resolve(process.env.UPLOAD_DIR);
       form.keepExtensions = true;
       form.parse(req, (err, data, files) => {
         if(err)
