@@ -38,6 +38,90 @@ export default function Home(props) {
   // Shopping cart stuff
   const [orders, addOrder] = context.cart;
   const [showCart, setShowCart] = context.showCart;
+
+  // Favorite menu items
+  const data = context.data || {};
+  const Entries = ()=>{
+    const favorites = [];
+    const burgers = data["Burger"];
+    if(burgers != undefined){
+      const entries = Object.entries(burgers);
+      for(let i = 0; i < 4; i++){
+        favorites.push(entries[i]);
+      }
+
+      const output = favorites.map(elem=>{
+        const id = elem[1]._id;
+        const name = elem[0];
+        const description = elem[1].Description;
+        const price = elem[1].Price;
+        const ImageURL = elem[1].ImageURL;
+        
+        return(
+            <Entry 
+                key={id}
+                id={id}
+                name={name}
+                description={description}
+                price={price}
+                imageURL={ImageURL}
+                addOrder={addOrder}
+            />
+        );
+      })
+
+      return output;
+    }
+
+    return null
+  }
+
+  // // If max reads reached uncomment this
+  // const Entries = ()=>{
+  //   return(
+  //     <React.Fragment>
+  //       <Entry
+  //             id={1}
+  //             imageURL="origin-burger.png"
+  //             name="Origin Burger"
+  //             price="10"
+  //             description="Roasted eggplant spread, marinated steak, veggies"
+  //             addOrder={addOrder}
+  //             animate
+  //             />
+
+  //           <Entry 
+  //             id={2}
+  //             imageURL="origin-burger.png"
+  //             name="Traditional Burger"
+  //             price="10"
+  //             description="Roasted eggplant spread, marinated steak, veggies"
+  //             addOrder={addOrder}
+  //             animate
+  //             />
+
+  //           <Entry
+  //             id={3}
+  //             imageURL="origin-burger.png"
+  //             name="Kid's Burger"
+  //             price="7"
+  //             description="Roasted eggplant spread, marinated steak, veggies"
+  //             addOrder={addOrder}
+  //             animate
+  //           />
+
+  //           <Entry
+  //             id={4}
+  //             imageURL="origin-burger.png"
+  //             name="Mini Burger"
+  //             price="8"
+  //             description="Roasted eggplant spread, marinated steak, veggies"
+  //             addOrder={addOrder}
+  //             animate
+  //           />
+  //     </React.Fragment>
+  //   )
+  // }
  
 
   return (
@@ -78,45 +162,7 @@ export default function Home(props) {
           WhiteBurger
         >
           <Grid col={2}>
-            <Entry
-              id={1}
-              imageURL="origin-burger.png"
-              name="Origin Burger"
-              price="10"
-              description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={addOrder}
-              animate
-              />
-
-            <Entry 
-              id={2}
-              imageURL="origin-burger.png"
-              name="Traditional Burger"
-              price="10"
-              description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={addOrder}
-              animate
-              />
-
-            <Entry
-              id={3}
-              imageURL="origin-burger.png"
-              name="Kid's Burger"
-              price="7"
-              description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={addOrder}
-              animate
-            />
-
-            <Entry
-              id={4}
-              imageURL="origin-burger.png"
-              name="Mini Burger"
-              price="8"
-              description="Roasted eggplant spread, marinated steak, veggies"
-              addOrder={addOrder}
-              animate
-            />
+            {Entries()}
           </Grid>
         </Section>
 

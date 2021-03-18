@@ -6,6 +6,9 @@ import cookieCutter from 'cookie-cutter'
 // Next things
 import Head from "next/head"
 
+//Config
+import {server} from "../config/index"
+
 // Context
 import Context from "../context";
 
@@ -17,6 +20,19 @@ import {md} from "../public/breakpoints";
 
 
 function MyApp({ Component, pageProps }) {
+
+    // Fetch data
+    const [data, setData] = useState({})
+    useEffect(async ()=>{
+        const url = `${server}/api/menu`
+        const res = await fetch(url);
+        const data = await res.json();
+
+        setData(data);
+
+    }, [data])
+
+    
 
     // Page title
     const [pageTitle, setPageTitle] = useState("");
@@ -142,7 +158,9 @@ function MyApp({ Component, pageProps }) {
         cart: [orders, addOrder],
         showCart: [showCart, setShowCart],
         clearCart: [deleteOrder, clearCart],
-        setOrders: setOrders
+        setOrders: setOrders,
+        data: data
+        
     };
 
     return (

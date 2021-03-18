@@ -17,7 +17,8 @@ import Intro from "../components/intro/intro"
 import SeparateSection from "../components/separateSection";
 import Section from "../components/section/section";
 import ContactForm from "../components/contact-form/contact-form"
-import Footer from "../components/footer/footer"
+import Footer from "../components/footer/footer";
+import ShowOrder from "../components/showOrder/showOrder"
 
 
 
@@ -33,6 +34,10 @@ function Contact(props){
 
     const isMobile = context.isMobile[0];
     const windowDimensions = context.windowDimensions[0];
+
+    // Shopping cart
+    const [orders, addOrder] = context.cart;
+    const [showCart, setShowCart] = context.showCart;
 
 
     return(
@@ -64,6 +69,7 @@ function Contact(props){
 
                 <Footer />
             </Container>
+            <ShowOrder orders={orders} setShowCart={setShowCart} />
         </React.Fragment>
     )
 }

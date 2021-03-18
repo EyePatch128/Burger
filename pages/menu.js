@@ -16,6 +16,8 @@ import Scrollspy from "../components/scrollspy/scrollspy"
 import Grid from "../components/grid/grid";
 import Entry from "../components/entry/entry";
 import Footer from "../components/footer/footer";
+import ShowOrder from "../components/showOrder/showOrder"
+
 
 export default function Menu(props){
     const context  = useContext(Context);
@@ -30,116 +32,120 @@ export default function Menu(props){
     const isMobile = context.isMobile[0];
     const windowDimensions = context.windowDimensions[0];
 
-    // // Fetch data
-    // const [data, setData] = useState({})
-    // useEffect(async ()=>{
-    //     const url = `${server}/api/menu`
-    //     const res = await fetch(url);
-    //     const data = await res.json();
+    // Shopping cart stuff
+    const [orders, addOrder] = context.cart;
+    const [showCart, setShowCart] = context.showCart;
+    
+    const data = context.data || {};
+    const food = Object.keys(data);
 
-    //     setData(data);
-
-    // }, [data])
-
-    // const food = Object.keys(data);
-
-    // const Entries = elem=>{
-    //     return Object.entries(data[elem]).map(entry=>{
-    //         const id = entry[1]._id;
-    //         const name = entry[0];
-    //         const description = entry[1].Description;
-    //         const price = entry[1].Price;
-    //         const ImageURL = entry[1].ImageURL;
-            
-    //         return(
-    //             <Entry 
-    //                 key={id}
-    //                 id={id}
-    //                 name={name}
-    //                 description={description}
-    //                 price={price}
-    //                 imageURL={ImageURL}
-    //                 addOrder={""}
-    //             />
-    //         );
-    //     })
-    // }
-
-    // const MobileMenu = food.map((elem, index)=>{
-    //                     return (
-    //                         <Section title={elem} key={index}>
-    //                             <Grid col={2} tb>
-    //                                 {Entries(elem)}
-    //                             </Grid>
-    //                         </Section>
-    //                     );
-    //                 })
-
-    // const MenuGrids = ()=>{
-    //     return food.map((elem, index)=>{
-    //         return(
-    //             <Grid key={index}>
-    //                 {
-    //                     Entries(elem)
-    //                 }
-    //             </Grid>
-    //         );
-    //     })
-    // }
-
-    const [activeGrid, setActiveGrid] = useState("Burger")
-
-    const Entries = (img)=>{
-        let x = [];
-        for(let i=0; i<4; i++){
-            const id = i+"p";
-            const name = "Origin Burger"
-            const description = "Roasted eggplant spread, marinated steak, veggies"
-            const price = 10
-            const ImageURL = img
-
-            x[i] = (
+    const Entries = elem=>{
+        if(data[elem] != undefined){
+            return Object.entries(data[elem]).map(entry=>{
+                const id = entry[1]._id;
+                const name = entry[0];
+                const description = entry[1].Description;
+                const price = entry[1].Price;
+                const ImageURL = entry[1].ImageURL;
+                
+                return(
                     <Entry 
                         key={id}
+                        id={id}
                         name={name}
                         description={description}
                         price={price}
                         imageURL={ImageURL}
-                        addOrder={""}
+                        addOrder={addOrder}
                     />
-                )
+                );
+            })
         }
-        return x;
+        return null;
     }
-    const food = ["Burger", "Salad", "Drink"];
-    const img = ["/images/origin-burger.png", "/images/salad.jpg", "images/orange-juice.jpg"]
+
     const MobileMenu = ()=>{
-        const result =  food.map((elem, index)=>{
+        const result = food.map((elem, index)=>{
             return (
-                <Section title={elem} key={index+1}>
+                <Section title={elem} key={index}>
                     <Grid col={2} tb>
-                        {Entries(img[index])}
+                        {Entries(elem)}
                     </Grid>
                 </Section>
             );
         })
-        return result
-    }
-
-    const MenuGrids = ()=>{
-        let x = [];
-        for(let i=0; i < 3; i++){
-            x[i] = (
-                <Grid col={2} key={i}>
-                    {
-                        Entries(img[i])
-                    }
-                </Grid>
-            )
-        }
-        return x[food.indexOf(activeGrid)];
+        return result;
     }
     
+    const [activeGrid, setActiveGrid] = useState("Burger")
+    const MenuGrids = ()=>{
+            return(
+                <Grid col={2}>
+                    {
+                        Entries(activeGrid)
+                    }
+                </Grid>
+            );
+        
+    }
+
+
+    // // If max reads is reached uncomment this below
+
+    // const Entries = (img)=>{
+    //     let x = [];
+    //     for(let i=0; i<4; i++){
+    //         const id = i+"p";
+    //         const name = "Origin Burger"
+    //         const description = "Roasted eggplant spread, marinated steak, veggies"
+    //         const price = 10
+    //         const ImageURL = img
+
+    //         x[i] = (
+    //                 <Entry 
+    //                     key={id}
+    //                     id={id}
+    //                     name={name}
+    //                     description={description}
+    //                     price={price}
+    //                     imageURL={ImageURL}
+    //                     addOrder={addOrder}
+    //                 />
+    //             )
+    //     }
+    //     return x;
+    // }
+    // const food = ["Burger", "Salad", "Drink"];
+    // const img = ["/images/origin-burger.png", "/images/salad.jpg", "images/orange-juice.jpg"]
+    // const MobileMenu = ()=>{
+    //     const result =  food.map((elem, index)=>{
+    //         return (
+    //             <Section title={elem} key={index+1}>
+    //                 <Grid col={2} tb>
+    //                     {Entries(img[index])}
+    //                 </Grid>
+    //             </Section>
+    //         );
+    //     })
+    //     return result
+    // }
+
+    // const MenuGrids = ()=>{
+    //     let x = [];
+    //     for(let i=0; i < 3; i++){
+    //         x[i] = (
+    //             <Grid col={2} key={i}>
+    //                 {
+    //                     Entries(img[i])
+    //                 }
+    //             </Grid>
+    //         )
+    //     }
+    //     return x[food.indexOf(activeGrid)];
+    // }
+    
+
+
     return(
         <React.Fragment>
             <Navbar isMobile={isMobile}/>
@@ -167,6 +173,7 @@ export default function Menu(props){
                 <Footer />
 
             </Container>
+            <ShowOrder orders={orders} setShowCart={setShowCart} />
         </React.Fragment>
     );
 }
