@@ -95,7 +95,7 @@ export default function Menu(props){
 
     const Entries = (img)=>{
         let x = [];
-        for(let i=0; i<4; i++){
+        for(let i=0; i<8; i++){
             const id = i+"p";
             const name = "Origin Burger"
             const description = "Roasted eggplant spread, marinated steak, veggies"
