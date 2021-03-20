@@ -117,7 +117,7 @@ export default function Menu(props){
         return x;
     }
     const food = ["Burger", "Salad", "Drink"];
-    const img = ["/images/origin-burger.png", "/images/salad.jpg", "images/orange-juice.jpg"]
+    const img = ["/images/origin-burger.png", "/images/Salad.jpg", "images/orange-juice.jpg"]
     const MobileMenu = ()=>{
         const result =  food.map((elem, index)=>{
             return (
