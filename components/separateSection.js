@@ -21,6 +21,7 @@ const SeparateSection = styled.section`
 
     svg{
         margin: 0 auto -0.1em auto;
+        max-height: 10em;
     }
 
     @media screen and (min-width: ${md}){

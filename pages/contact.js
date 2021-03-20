@@ -1,7 +1,5 @@
 import React, {useContext, useEffect} from "react"
 
-// Nextjs
-import Image from "next/image"
 
 // Context
 import Context from "../context"
@@ -39,6 +37,9 @@ function Contact(props){
     const [orders, addOrder] = context.cart;
     const [showCart, setShowCart] = context.showCart;
 
+    //Img
+    const IMGWidth = isMobile? windowDimensions.width - (0.1 * windowDimensions.width) : windowDimensions.width * (3.2/4);
+    const IMGHeight = isMobile? windowDimensions.width * (4.75/5) : windowDimensions.height * (4.75/5);
 
     return(
         <React.Fragment>
@@ -63,7 +64,7 @@ function Contact(props){
                     title="Find Us"
                 >
                     <div style={{margin: isMobile? "2em" : "2em auto"}}>
-                        <Image src="/images/map.png" alt="map" width={isMobile? windowDimensions.width - (0.1 * windowDimensions.width) : windowDimensions.width * (3.5/4)} height={isMobile? windowDimensions.width * (4.75/5) : windowDimensions.height * (4.75/5)} />
+                        <img src="/images/map.png" alt="map" width={IMGWidth+"px"} height={IMGHeight+"px"} />
                     </div>
                 </Section>
 

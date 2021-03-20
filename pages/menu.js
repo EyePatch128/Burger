@@ -36,72 +36,21 @@ export default function Menu(props){
     const [orders, addOrder] = context.cart;
     const [showCart, setShowCart] = context.showCart;
     
-    const data = context.data || {};
-    const food = Object.keys(data);
-
-    const Entries = elem=>{
-        if(data[elem] != undefined){
-            return Object.entries(data[elem]).map(entry=>{
-                const id = entry[1]._id;
-                const name = entry[0];
-                const description = entry[1].Description;
-                const price = entry[1].Price;
-                const ImageURL = entry[1].ImageURL;
-                
-                return(
-                    <Entry 
-                        key={id}
-                        id={id}
-                        name={name}
-                        description={description}
-                        price={price}
-                        imageURL={ImageURL}
-                        addOrder={addOrder}
-                    />
-                );
-            })
-        }
-        return null;
-    }
-
-    const MobileMenu = ()=>{
-        const result = food.map((elem, index)=>{
-            return (
-                <Section title={elem} key={index}>
-                    <Grid col={2} tb>
-                        {Entries(elem)}
-                    </Grid>
-                </Section>
-            );
-        })
-        return result;
-    }
-    
     const [activeGrid, setActiveGrid] = useState("Burger")
-    const MenuGrids = ()=>{
-            return(
-                <Grid col={2}>
-                    {
-                        Entries(activeGrid)
-                    }
-                </Grid>
-            );
-        
-    }
 
+    // const data = context.data || {};
+    // const food = Object.keys(data);
 
-    // // If max reads is reached uncomment this below
-
-    // const Entries = (img)=>{
-    //     let x = [];
-    //     for(let i=0; i<4; i++){
-    //         const id = i+"p";
-    //         const name = "Origin Burger"
-    //         const description = "Roasted eggplant spread, marinated steak, veggies"
-    //         const price = 10
-    //         const ImageURL = img
-
-    //         x[i] = (
+    // const Entries = elem=>{
+    //     if(data[elem] != undefined){
+    //         return Object.entries(data[elem]).map(entry=>{
+    //             const id = entry[1]._id;
+    //             const name = entry[0];
+    //             const description = entry[1].Description;
+    //             const price = entry[1].Price;
+    //             const ImageURL = entry[1].ImageURL;
+                
+    //             return(
     //                 <Entry 
     //                     key={id}
     //                     id={id}
@@ -111,38 +60,90 @@ export default function Menu(props){
     //                     imageURL={ImageURL}
     //                     addOrder={addOrder}
     //                 />
-    //             )
+    //             );
+    //         })
     //     }
-    //     return x;
+    //     return null;
     // }
-    // const food = ["Burger", "Salad", "Drink"];
-    // const img = ["/images/origin-burger.png", "/images/salad.jpg", "images/orange-juice.jpg"]
+
     // const MobileMenu = ()=>{
-    //     const result =  food.map((elem, index)=>{
+    //     const result = food.map((elem, index)=>{
     //         return (
-    //             <Section title={elem} key={index+1}>
+    //             <Section title={elem} key={index}>
     //                 <Grid col={2} tb>
-    //                     {Entries(img[index])}
+    //                     {Entries(elem)}
     //                 </Grid>
     //             </Section>
     //         );
     //     })
-    //     return result
+    //     return result;
     // }
-
+    
     // const MenuGrids = ()=>{
-    //     let x = [];
-    //     for(let i=0; i < 3; i++){
-    //         x[i] = (
-    //             <Grid col={2} key={i}>
+    //         return(
+    //             <Grid col={2}>
     //                 {
-    //                     Entries(img[i])
+    //                     Entries(activeGrid)
     //                 }
     //             </Grid>
-    //         )
-    //     }
-    //     return x[food.indexOf(activeGrid)];
+    //         );
+        
     // }
+
+
+    // // If max reads is reached uncomment this below
+
+    const Entries = (img)=>{
+        let x = [];
+        for(let i=0; i<4; i++){
+            const id = i+"p";
+            const name = "Origin Burger"
+            const description = "Roasted eggplant spread, marinated steak, veggies"
+            const price = 10
+            const ImageURL = img
+
+            x[i] = (
+                    <Entry 
+                        key={id}
+                        id={id}
+                        name={name}
+                        description={description}
+                        price={price}
+                        imageURL={ImageURL}
+                        addOrder={addOrder}
+                    />
+                )
+        }
+        return x;
+    }
+    const food = ["Burger", "Salad", "Drink"];
+    const img = ["/images/origin-burger.png", "/images/salad.jpg", "images/orange-juice.jpg"]
+    const MobileMenu = ()=>{
+        const result =  food.map((elem, index)=>{
+            return (
+                <Section title={elem} key={index+1}>
+                    <Grid col={2} tb>
+                        {Entries(img[index])}
+                    </Grid>
+                </Section>
+            );
+        })
+        return result
+    }
+
+    const MenuGrids = ()=>{
+        let x = [];
+        for(let i=0; i < 3; i++){
+            x[i] = (
+                <Grid col={2} key={i}>
+                    {
+                        Entries(img[i])
+                    }
+                </Grid>
+            )
+        }
+        return x[food.indexOf(activeGrid)];
+    }
     
 
 

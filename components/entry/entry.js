@@ -12,20 +12,20 @@ function Entry(props){
     
     
     // Fetch image background download url
-    const [imageURL, setImageURL] = useState("");
-    useEffect(()=>{
-        fetch(`/api/image?id=${props.imageURL}`)
-        .then(res=>res.text())
-        .then(res=>{
-            setImageURL(res)
-        })
-        .catch(err=>{
-            throw err;
-        });
-    }, [imageURL])
+    // const [imageURL, setImageURL] = useState("");
+    // useEffect(()=>{
+    //     fetch(`/api/image?id=${props.imageURL}`)
+    //     .then(res=>res.text())
+    //     .then(res=>{
+    //         setImageURL(res)
+    //     })
+    //     .catch(err=>{
+    //         throw err;
+    //     });
+    // }, [imageURL])
     
     
-    const {id, name, description, price} = props;
+    const {id, name, description, price, imageURL} = props;
 
     // cart stuff
     const {addOrder} = props;
