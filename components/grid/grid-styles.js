@@ -3,7 +3,7 @@ import { md, tb } from "../../public/breakpoints"
 
 
 export const GridContainer = styled.div`
-    margin: 4em 5% 0 5%;
+    margin: 4em 10% 0 10%;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1em;

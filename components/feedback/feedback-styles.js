@@ -14,15 +14,19 @@ export const Container = styled.div`
 
     @media screen and (min-width: ${tb}){
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas:
             "image"
             "image"
             "image"
+            "."
+            "text"
             "text"
             "text";
         background: ${secondary_bg_color};
-        margin: 0;
+        margin: ${props=>props.enlarge ? "-2em 0" : "0"};
+
+        padding: ${props=>props.enlarge ? "2em 0 2em 0": "0"}
     }
 `
 
@@ -77,6 +81,7 @@ export const Comment = styled.div`
 
     @media screen and (min-width: ${tb}){
         font-size: 16px;
+        margin-top: 1.5em;
         margin-bottom: 0em;
     }
 `

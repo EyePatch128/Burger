@@ -8,7 +8,7 @@ import RightArrow from "../../public/icons/right-arrow.svg";
 function ButtonContainer(props){
 
     return(
-        <Container>
+        <Container notcentered={props.notcentered}>
             <Link href="/menu">
                 <Button text={props.children}>
                     <span>

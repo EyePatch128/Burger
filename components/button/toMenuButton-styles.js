@@ -4,7 +4,7 @@ import { md } from "../../public/breakpoints";
 import { primary_color } from "../../public/colors";
 
 export const Container = styled.div`
-    width: 100%;
+    width: ${props=>props.notcentered ? "60%" : "100%"};
     display: flex;
     justify-content: center;
     margin-top: 3em;

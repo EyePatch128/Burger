@@ -32,12 +32,11 @@ export const HeadingContainer = styled.div`
     margin-top: 0.5em;
   }
 
-  @media screen and (min-width:${md}){    
-    padding-top: 25vh;
-    margin: auto;
+  @media screen and (min-width:${md}){
+    padding: 25vh 0 0 0;  
     width: 60%;
-    text-align: center;
-    
+    margin-left: 10%;
+
     h1{
       font-size: 50px;
     }

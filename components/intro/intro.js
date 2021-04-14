@@ -18,7 +18,7 @@ function IntroContainer(props){
                 </HeadingContainer>
             
                 <ShowWhenVisible>
-                    {props.btn?<Button>  {props.btn} </Button>:null}
+                    {props.btn?<Button notcentered>  {props.btn} </Button>:null}
                 </ShowWhenVisible>
             </ShowWhenVisible>
         </Intro>
