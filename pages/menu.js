@@ -159,17 +159,19 @@ export default function Menu(props){
 
                 <SeparateSection up isMobile={isMobile} windowDimensions={windowDimensions}/>
 
-                {isMobile ?
-                    <Section>{MobileMenu()}</Section>
-                :   
-                        <Section>
-                            <Scrollspy sections={food} setActiveGrid={setActiveGrid}>
-                                {
-                                    MenuGrids()
-                                }
-                            </Scrollspy>
-                        </Section>
-                }
+                <Section>
+                    {isMobile ?
+                        MobileMenu()
+                    :   
+                            
+                        <Scrollspy sections={food} setActiveGrid={setActiveGrid}>
+                            {
+                                MenuGrids()
+                            }
+                        </Scrollspy>
+                            
+                    }
+                </Section>
 
                 <Footer />
 
