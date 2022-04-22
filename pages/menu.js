@@ -21,21 +21,20 @@ import Entry from "../components/entry/entry";
 import Footer from "../components/footer/footer";
 import ShowOrder from "../components/showOrder/showOrder"
 
-export async function getStaticProps(context) {
-    const url = `${server}/api/menu`
-    const res = await fetch(url);
-    const data = await res.json();
+// export async function getStaticProps(context) {
+//     const url = `${server}/api/menu`
+//     const res = await fetch(url);
+//     const data = await res.json();
 
-    return {
-      props: {
-          data,
-      },
-    }
-}
+//     return {
+//       props: {
+//           data,
+//       },
+//     }
+// }
 
 
 export default function Menu(props){
-    console.log(props.data)
     const context  = useContext(Context);
 
     // Set page Title
@@ -53,58 +52,6 @@ export default function Menu(props){
     const [showCart, setShowCart] = context.showCart;
     
     const [activeGrid, setActiveGrid] = useState("Burger")
-
-    // const data = context.data || {};
-    // const food = Object.keys(data);
-
-    // const Entries = elem=>{
-    //     if(data[elem] != undefined){
-    //         return Object.entries(data[elem]).map(entry=>{
-    //             const id = entry[1]._id;
-    //             const name = entry[0];
-    //             const description = entry[1].Description;
-    //             const price = entry[1].Price;
-    //             const ImageURL = entry[1].ImageURL;
-                
-    //             return(
-    //                 <Entry 
-    //                     key={id}
-    //                     id={id}
-    //                     name={name}
-    //                     description={description}
-    //                     price={price}
-    //                     imageURL={ImageURL}
-    //                     addOrder={addOrder}
-    //                 />
-    //             );
-    //         })
-    //     }
-    //     return null;
-    // }
-
-    // const MobileMenu = ()=>{
-    //     const result = food.map((elem, index)=>{
-    //         return (
-    //             <Section title={elem} key={index}>
-    //                 <Grid col={2} tb>
-    //                     {Entries(elem)}
-    //                 </Grid>
-    //             </Section>
-    //         );
-    //     })
-    //     return result;
-    // }
-    
-    // const MenuGrids = ()=>{
-    //         return(
-    //             <Grid col={2}>
-    //                 {
-    //                     Entries(activeGrid)
-    //                 }
-    //             </Grid>
-    //         );
-        
-    // }
 
 
     // // If max reads is reached uncomment this below
