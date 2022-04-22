@@ -2,7 +2,7 @@ export const index = {
     Intro: {
       bg:"home-bg.png",
       title:"Big burger",
-      subtitle:"Amazing burgers of everytype for everyone",
+      subtitle:"Amazing burgers of every type for everyone",
       btn:"Order Now"
     },
     TheBurgerPlace: {
