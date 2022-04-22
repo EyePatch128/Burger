@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 
+//Config
+import {server} from "../config/index"  
+
 //Context
 import Context from "../context"
 
@@ -18,8 +21,21 @@ import Entry from "../components/entry/entry";
 import Footer from "../components/footer/footer";
 import ShowOrder from "../components/showOrder/showOrder"
 
+export async function getStaticProps(context) {
+    const url = `${server}/api/menu`
+    const res = await fetch(url);
+    const data = await res.json();
+
+    return {
+      props: {
+          data,
+      },
+    }
+}
+
 
 export default function Menu(props){
+    console.log(props.data)
     const context  = useContext(Context);
 
     // Set page Title

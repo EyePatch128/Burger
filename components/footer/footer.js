@@ -48,19 +48,19 @@ function Footer(props){
 
                 <ShowWhenVisible>
                     <Social>
-                        <Link href="#">
+                        <Link href="facebook.com">
                             <FacebookIcon />
                         </Link>
 
-                        <Link href="#">
+                        <Link href="instagram.com">
                             <InstagramIcon />
                         </Link>
 
-                        <Link href="#">
+                        <Link href="twitter.com">
                             <TwitterIcon />
                         </Link>
 
-                        <Link href="#">
+                        <Link href="pinterest.com">
                             <PinterestIcon />
                         </Link>
                     </Social>

@@ -39,43 +39,6 @@ export default function Home(props) {
   const [orders, addOrder] = context.cart;
   const [showCart, setShowCart] = context.showCart;
 
-  // Favorite menu items
-  // const data = context.data || {};
-  // const Entries = ()=>{
-  //   const favorites = [];
-  //   const burgers = data["Burger"];
-  //   if(burgers != undefined){
-  //     const entries = Object.entries(burgers);
-  //     for(let i = 0; i < 4; i++){
-  //       favorites.push(entries[i]);
-  //     }
-
-  //     const output = favorites.map(elem=>{
-  //       const id = elem[1]._id;
-  //       const name = elem[0];
-  //       const description = elem[1].Description;
-  //       const price = elem[1].Price;
-  //       const ImageURL = elem[1].ImageURL;
-        
-  //       return(
-  //           <Entry 
-  //               key={id}
-  //               id={id}
-  //               name={name}
-  //               description={description}
-  //               price={price}
-  //               imageURL={ImageURL}
-  //               addOrder={addOrder}
-  //           />
-  //       );
-  //     })
-
-  //     return output;
-  //   }
-
-  //   return null
-  // }
-
   // If max reads reached uncomment this
   const Entries = ()=>{
     return(
@@ -178,9 +141,9 @@ export default function Home(props) {
 
         <Section>
             <Grid col={3} tb>
-              <Feedback image="sakura.jpg" name="Sakura" comment="Non malesuada sit ipsum purus, sed!" />
-              <Feedback enlarge image="song.jpg" name="Song" comment="Non malesuada sit ipsum purus, sed!" />
-              <Feedback image="viking.jpg" name="Viking" comment="Non malesuada sit ipsum purus, sed!" />
+              <Feedback image="sakura.jpg" name="Jane" comment="Delicious! Can't wait to come back!" />
+              <Feedback enlarge image="song.jpg" name="Song" comment="This is the best burger I've ever eaten" />
+              <Feedback image="viking.jpg" name="Matt" comment="How can they make such good burgers!" />
             </Grid>
         </Section>
 
