@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion"
 
 // Icons
 import PhoneIcon from "../../public/icons/phone.svg";
-import ColoredBurger from "../burger-icon/colored-burger.js";
+import ColoredBurger from "../burger-icon/nav-burger.js";
 
 // components
 import { Nav, Logo, Phone, NavListContainerMobile } from "./navbar-styles";
@@ -60,8 +60,7 @@ function Navigation (props){
                 </React.Fragment>
             }
             <Link href="/">
-                <Logo>LOGO</Logo>
-                <ColoredBurger/>
+                <ColoredBurger />
             </Link>
             {
                 !isMobile &&
