@@ -24,7 +24,7 @@ function Burger(props){
         <Container1>
             
             <svg version="1.1" id="Layer_1" x="0px" y="0px"
-	 viewBox="0 0 512 512" style={{'enable-background': 'new 0 0 512 512' }}>
+	 viewBox="0 0 512 512" style={{'enableBackground': 'new 0 0 512 512' }}>
 <g>
 	<path style={{"fill":'#F6A230'}} d="M26.857,329.162v48.106c0,29.412,23.844,53.256,53.257,53.256h351.77
 		c29.413,0,53.257-23.844,53.257-53.256v-48.106H26.857z"/>
