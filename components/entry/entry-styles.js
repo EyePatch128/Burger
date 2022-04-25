@@ -48,6 +48,7 @@ export const Image = styled.div`
 export const TextContainer = styled.div`
     color: ${paragraph_color};
     margin: 2em auto;
+    width: 90%;
 
     & > *{
         margin: 0;
@@ -63,7 +64,6 @@ export const Name = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 0.9em;
-    width: 90%;
     margin: auto;
     letter-spacing: 1.5px;
 
@@ -80,7 +80,6 @@ export const Name = styled.div`
 export const Description = styled.div`
     margin: 0.5em auto 0 auto;
     font-weight: 100;
-    width: 90%;
     font-size: 0.8em;
     & > *{
         margin: 0;

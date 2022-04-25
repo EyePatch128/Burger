@@ -45,7 +45,7 @@ export default function Home(props) {
       <React.Fragment>
         <Entry
               id={1}
-              imageURL="/images/origin-burger.png"
+              imageURL="/images/burger1.jpg"
               name="Origin Burger"
               price="10"
               description="Roasted eggplant spread, marinated steak, veggies"
@@ -55,30 +55,30 @@ export default function Home(props) {
 
             <Entry 
               id={2}
-              imageURL="/images/origin-burger.png"
+              imageURL="/images/burger2.jpg"
               name="Traditional Burger"
               price="10"
-              description="Roasted eggplant spread, marinated steak, veggies"
+              description="Marinated steak, veggies, hot sauce"
               addOrder={addOrder}
               animate
               />
 
             <Entry
               id={3}
-              imageURL="/images/origin-burger.png"
+              imageURL="/images/burger3.jpg"
               name="Kid's Burger"
               price="7"
-              description="Roasted eggplant spread, marinated steak, veggies"
+              description="Marinated steak, veggies, Cheddar"
               addOrder={addOrder}
               animate
             />
 
             <Entry
               id={4}
-              imageURL="/images/origin-burger.png"
+              imageURL="/images/burger4.jpg"
               name="Mini Burger"
               price="8"
-              description="Roasted eggplant spread, marinated steak, veggies"
+              description="Double steak, veggies"
               addOrder={addOrder}
               animate
             />
